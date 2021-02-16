@@ -21,13 +21,3 @@ stories:
   - action: action_send_helpline_number
   - action: action_main_service
 
-- story: Self_Assessment
-  steps:
-  - intent: health_services
-  - action: action_health_service
-  - intent: Self_Assessment
-  - action: self_assessment
-  - active_loop: Self_Assessment
-  - active_loop: null
-  - action: action_Self_Assessment_submit
-  - action: action_main_service
