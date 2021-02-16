@@ -1,0 +1,33 @@
+version: "2.0"
+
+stories:
+
+- story: Patient_Registration
+  steps:
+  - intent: health_services
+  - action: action_health_service
+  - intent: Patient_Registration
+  - action: Patient_details
+  - active_loop: Patient_details
+  - active_loop: null
+  - action: action_Patient_data_submit
+  - action: action_main_service
+
+- story: Help_line_number
+  steps:
+  - intent: health_services
+  - action: action_health_service
+  - intent: Help_Line_Numbers
+  - action: action_send_helpline_number
+  - action: action_main_service
+
+- story: Self_Assessment
+  steps:
+  - intent: health_services
+  - action: action_health_service
+  - intent: Self_Assessment
+  - action: self_assessment
+  - active_loop: Self_Assessment
+  - active_loop: null
+  - action: action_Self_Assessment_submit
+  - action: action_main_service

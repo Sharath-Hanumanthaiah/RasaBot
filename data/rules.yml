@@ -1,0 +1,17 @@
+version: "2.0"
+
+rules:
+  - rule: patient registration
+    steps:
+      - intent: Patient_Registration
+      - action: Patient_details
+      - active_loop: Patient_details
+
+  - rule: patient registration submit
+    condition:
+    - active_loop: Patient_details
+    steps:
+      - action: Patient_details
+      - active_loop: null
+      - action: action_Patient_data_submit
+      - action: action_main_service

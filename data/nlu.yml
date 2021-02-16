@@ -1,0 +1,181 @@
+version: "2.0"
+
+nlu:
+- intent: health_services
+  examples: |
+    - Hi i need health services
+    - required services related to health
+    - i need help in health related issue
+    - i wnat health services
+    - can i have service related to health]
+    - what all health related services u can provide to me
+    - All health services
+    - health related issue
+    - services related to health
+    - need health suggestion
+    - help me related to health services
+
+
+- intent: Patient_Registration
+  examples: |
+    - I want to register patient
+    - I need to regster patient
+    - can i have do patient registration
+    - patient registration
+    - i need help related patient registration
+    - patient registration services
+
+
+- intent: Help_Line_Numbers
+  examples: |
+    - Help Line Numbers
+    - I want to health help line number
+    - whom i need ti call health related suggestion
+    - i need to call the help line 
+    - i need to call health service
+    - i need urgent call with health servent
+    - whom should i call for the health related services
+
+- intent: Self_Assessment
+  examples: |
+    - i need self assessment
+    - help in self assessment
+    - can u hlep me in related to self assessment related.
+    - can i take assessment in bot
+    - can trinity chatbot help me related to assessment
+    - slef assessment
+
+- intent: Patient_name
+  examples: |
+    - [sharath](name)
+    - [akshay](name)
+    - [sandeep](name)
+    - [varun](name)
+    - [anu](name)
+    - [swetha](name)
+    - [shahsi](name)
+    - [shahsi kumar](name)
+    - patient name is [sharath](name)
+    - patient to be rigisted [pramod](name)
+    - patient name is [basavaraj](name)
+    - myself [shreyas](name)
+    - my name is [charan](name)
+    - name [aswini](name)
+    - patient name is [amir](name)
+
+- regex: age
+  examples: |
+    - \d{1,2}
+
+- intent: patient_age
+  examples: |
+    - [39](age)
+    - my age is [39](age)
+    - age [39](age)
+    - I am  [39](age)
+    - i am [39](age) year old
+
+- intent: patient_address
+  examples: |
+    - i stay in [maleshwaram, bengaluru-56066](patient_address)
+    - i am at [vijaynagar, bengaluru-56066](patient_address)
+    - my location [indranagr, bengaluru-56066](patient_address)
+    - loacted in [hebal, bengaluru-56066](patient_address)
+    - my address [test, bengaluru-56066](patient_address)
+
+- intent: assessment_person_gender
+  examples: |
+    - Male
+    - M
+    - Female
+    - F
+    - Others
+    - O
+
+- intent: affirm
+  examples: |
+    - Yes
+    - Y
+    - Ya
+    - i do
+    - yup
+
+- intent: deny
+  examples: |
+    - No
+    - N
+    - Nooo
+    - Nope
+    - no
+
+- regex: temp
+  examples: |
+    - \d{1,2} F
+    - \d{1,2} C
+
+- intent: body_temp
+  examples: |
+    - my body temp is [39 C](temp)
+    - I have body temp [98 F](temp)
+    - [39 C](temp)
+    - [104 F](temp)
+
+- intent: symptons
+  examples: |
+    - [Cough](symptons)
+    - [Cold](symptons)
+    - [Difficulty in Breathing](symptons)
+    - [Loss of senses of smell and taste](symptons)
+    - [Drowsiness](symptons)
+    - [Change in Appetite](symptons)
+    - [Weakness or body ache](symptons)
+    - [Persistent Pain and Pressure in Chest](symptons)
+    - [Cough][Cold](symptons)
+    - [Cough][Difficulty in Breathing](symptons)
+    - [Cough][Loss of senses of smell and taste](symptons)
+    - [Loss of senses of smell and taste][Drowsiness](symptons)
+    - [Drowsiness] [Change in Appetite](symptons)
+    - [Change in Appetite][Difficulty in Breathing](symptons)
+    - [Weakness or body ache][Cough](symptons)
+    - [Persistent Pain and Pressure in Chest][Weakness or body ache][Loss of senses of smell and taste](symptons)
+    - [Cough][Cold](symptons)
+    - [Cough][Difficulty in Breathing][Change in Appetite][Persistent Pain and Pressure in Chest](symptons)
+    - [Cough][Loss of senses of smell and taste](symptons)
+    - [Loss of senses of smell and taste][Drowsiness](symptons)
+    - [Drowsiness] [Change in Appetite][Difficulty in Breathing](symptons)
+    - [Change in Appetite][Difficulty in Breathing][Persistent Pain and Pressure in Chest](symptons)
+    - [Weakness or body ache][Cough]][Loss of senses of smell and taste](symptons)
+    - [Persistent Pain and Pressure in Chest][Loss of senses of smell and taste](symptons)
+
+- intent: diseases
+  examples: |
+      - [Diabetes](diseases)
+      - [High Blood Pressure](diseases)
+      - [Heart Disease](diseases)
+      - [Respiratory Disease](diseases)
+      - [Kidney Disorder](diseases)
+      - [Cancer](diseases)
+      - [None of these](diseases)
+      - [Diabetes][High Blood Pressure](diseases)
+      - [High Blood Pressure][Kidney Disorder](diseases)
+      - [Heart Disease][Kidney Disorder](diseases)
+      - [Respiratory Disease][Heart Disease](diseases)
+      - [Kidney Disorder][Heart Disease](diseases)
+      - [Cancer] [Heart Disease](diseases)
+      - [Diabetes][High Blood Pressure][Respiratory Disease][Cancer](diseases)
+      - [High Blood Pressure][Kidney Disorder](diseases)
+      - [Heart Disease][Diabetes][Respiratory Disease][Cancer](diseases)
+      - [Respiratory Disease][Heart Disease][Kidney Disorder](diseases)
+      - [Kidney Disorder][Heart Disease][Cancer](diseases)
+      - [Cancer] [Heart Disease][Kidney Disorder](diseases)
+
+- intent: care_facility
+  examples: |
+      - [I live in a long-term care facility](care_facility)
+      - [I have worked in a hospital or other care facility in the past 14 days](care_facility)
+      - [I plan to work in a hospital or other care facility in the next 14 days](care_facility)
+      - [No, I don’t live or work in a care facility](care_facility)
+      - tal or[I live in a long-term care facility][No, I don’t live or work in a care facility](care_facility)
+      - [I have worked in a hospi other care facility in the past 14 days][I live in a long-term care facility](care_facility)
+      - [I plan to work in a hospital or other care facility in the next 14 days][I have worked in a hospital or other care facility in the past 14 days](care_facility)
+      - [No, I don’t live or work in a care facility][I plan to work in a hospital or other care facility in the next 14 days](care_facility)
