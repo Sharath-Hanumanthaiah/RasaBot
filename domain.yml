@@ -1,0 +1,106 @@
+version: "2.0"
+
+intents:
+  - health_services
+  - Patient_Registration
+  - Help_Line_Numbers
+  - Self_Assessment
+  - bot_challenge
+  - patient_address
+  - patient_age
+  - Patient_name
+  - care_facility
+  - diseases
+  - symptons
+  - body_temp
+  - deny
+  - affirm
+  - assessment_person_gender
+
+entities:
+- name
+- temp
+- age
+- patient_address
+- symptons
+- diseases
+- care_facility
+
+actions:
+- action_health_service
+- validate_Patient_details
+- action_Patient_data_submit
+- action_main_service
+- action_send_helpline_number
+- validate_self_assessment
+- action_Self_Assessment_submit
+- action_ask_Patient_name
+- action_ask_patient_age
+
+slots:
+  Patient_name:
+    type: text
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+  patient_age:
+    type: text
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+  patient_address:
+    type: text
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+  body_temp:
+    type: float
+    min_value: -100.0
+    max_value:  100.0
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+  symptons:
+    type: list
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+  diseases:
+    type: list
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+  care_facility:
+    type: list
+    initial_value: null
+    auto_fill: false
+    influence_conversation: false
+
+forms:
+  Patient_details:
+    Patient_name:
+    - entity: Patient_name
+      intent:
+      - Patient_name
+      type: from_entity
+    patient_age:
+    - entity: age
+      intent:
+      - patient_age
+      type: from_entity
+    patient_address:
+    - entity: patient_address
+      intent:
+      - patient_address
+      type: from_entity
+
+  self_assessment:
+    Patient_name:
+    - entity: Patient_name
+      intent:
+      - Patient_name
+      type: from_entity
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
